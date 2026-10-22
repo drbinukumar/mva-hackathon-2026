@@ -8,7 +8,7 @@ Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
 Summary:        https://creativecommons.org/licenses/by/4.0/
 
 Exceptions and third-party terms:
-- docs/alphagenome_missense_result.txt contains output from the AlphaGenome API,
+- results_summary/alphagenome_missense_result.txt contains output from the AlphaGenome API,
   which is subject to AlphaGenome's non-commercial output terms of use.
 - This repository does not contain ANNOVAR, Exomiser, GATK, Manta or any
   third-party databases; those remain under their own licenses and terms.
