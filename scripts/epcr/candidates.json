@@ -1,0 +1,26 @@
+{
+  "proband_id": "WGS_EX2312012",
+  "prior": 0.1,
+  "candidates": [
+    {
+      "gene": "BUB1B",
+      "finding_type": "primary",
+      "variants": [
+        {"chrom": "chr15", "pos": 40209701, "ref": "T", "alt": "G",
+         "criteria": {"PVS1": 8, "PM2_Supporting": 1, "PP4": 1}},
+        {"chrom": "chr15", "pos": 40220612, "ref": "T", "alt": "G",
+         "criteria": {"PM2_Supporting": 1, "PP3_Supporting": 1, "PP4": 1}}
+      ],
+      "notes": "BUB1B compound heterozygous candidate: stop-gained c.2210T>G p.Leu737Ter plus missense c.3006T>G p.Asn1002Lys (VUS). Trans configuration not confirmed (could not be phased)."
+    },
+    {
+      "gene": "DPYD",
+      "finding_type": "secondary",
+      "variants": [
+        {"chrom": "chr1", "pos": 97305364, "ref": "C", "alt": "T",
+         "criteria": {"BA1": -8}}
+      ],
+      "notes": "DPYD rs1801160 (DPYD*6), ClinVar drug_response, common (gnomAD AF about 4-5%). Incidental pharmacogenomic observation, not a causal claim."
+    }
+  ]
+}

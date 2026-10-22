@@ -1,0 +1,3 @@
+proband_id,chrom_1,pos_1,ref_1,alt_1,chrom_2,pos_2,ref_2,alt_2,epcr,finding_type,notes
+WGS_EX2312012,chr15,40209701,T,G,chr15,40220612,T,G,0.4832,primary,BUB1B compound heterozygous candidate: stop-gained c.2210T>G p.Leu737Ter plus missense c.3006T>G p.Asn1002Lys (VUS). Trans configuration not confirmed (could not be phased). EPCR = min allele posterior 0.500 x Exomiser gene score 0.967.
+WGS_EX2312012,chr1,97305364,C,T,,,,,0.001,secondary,"DPYD rs1801160 (DPYD*6), ClinVar drug_response, common (gnomAD AF about 4-5%). Incidental pharmacogenomic observation, not a causal claim. EPCR = min allele posterior 0.000."

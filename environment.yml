@@ -1,0 +1,21 @@
+# Reproducible environment for the Track 1 pipeline.
+# Versions below are the ones used in the run; unpinned entries should be pinned
+# from `conda list` in the environment you actually ran (see docs/REUSE.md).
+name: mva_track1
+channels: [conda-forge, bioconda, defaults]
+dependencies:
+  - python=3.11
+  - snakemake=9.26.1
+  - bcftools
+  - samtools
+  - bwa
+  - gatk4=4.3.0.0
+  - manta=1.6.0
+  - whatshap
+  - mosdepth
+  - pandas
+  - numpy
+# Not installed by conda (download separately, check each licence/terms):
+#   ANNOVAR (annotate_variation.pl, table_annovar.pl) with refGene, avsnp151,
+#     dbnsfp47a, clinvar_20250409, gnomad41, 1000g2015aug, exac03, esp6500
+#   Exomiser CLI 14.0.0 with data release 2406 (+ hg38 variant data)

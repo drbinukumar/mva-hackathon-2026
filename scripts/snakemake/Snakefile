@@ -1,0 +1,62 @@
+REF = "/path/to/project/reference/GRCh38_no_chr_prefix.fna"
+R1 = ["/path/to/project/data/SAMPLE_ID_FLOWCELL_ID_S16_L00{}_R1_001.fastq.gz".format(i) for i in range(1,5)]
+R2 = ["/path/to/project/data/SAMPLE_ID_FLOWCELL_ID_S16_L00{}_R2_001.fastq.gz".format(i) for i in range(1,5)]
+REGION = "15:40200000-40230000"
+SAMPLE = "SAMPLE_ID"
+ORIG_VCF = "/path/to/project/data/SAMPLE_ID_FLOWCELL_ID.vcf.gz"
+
+rule all:
+    input:
+        "results/bub1b_phased.vcf"
+
+rule merge_fastq:
+    input:
+        r1=R1, r2=R2
+    output:
+        r1="results/merged_R1.fastq.gz",
+        r2="results/merged_R2.fastq.gz"
+    shell:
+        """
+        cat {input.r1} > {output.r1}
+        cat {input.r2} > {output.r2}
+        """
+
+rule align:
+    input:
+        r1="results/merged_R1.fastq.gz",
+        r2="results/merged_R2.fastq.gz",
+        ref=REF
+    output:
+        bam="results/SAMPLE_ID.sorted.bam"
+    threads: 16
+    shell:
+        """
+        module load bwa-0.7.17 samtools-0.1.15
+        bwa mem -t {threads} -R '@RG\\tID:SAMPLE_ID\\tSM:SAMPLE_ID\\tPL:ILLUMINA' {input.ref} {input.r1} {input.r2} | \
+        samtools sort -@ {threads} -o {output.bam} -
+        samtools index {output.bam}
+        """
+
+rule extract_region_vcf:
+    input:
+        vcf=ORIG_VCF
+    output:
+        vcf="results/bub1b_region_hets.vcf.gz"
+    shell:
+        """
+        module load bcftools-1.15
+        bcftools view -r {REGION} -O z -o {output.vcf} {input.vcf}
+        tabix -p vcf {output.vcf}
+        """
+
+rule phase:
+    input:
+        vcf="results/bub1b_region_hets.vcf.gz",
+        bam="results/SAMPLE_ID.sorted.bam",
+        ref=REF
+    output:
+        vcf="results/bub1b_phased.vcf"
+    shell:
+        """
+        whatshap phase -o {output.vcf} --reference={input.ref} {input.vcf} {input.bam}
+        """
