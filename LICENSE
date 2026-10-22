@@ -1,0 +1,15 @@
+Copyright (c) 2026 Binukumar B K
+
+Code, documentation and submission files in this repository are released under
+the Creative Commons Attribution 4.0 International License (CC BY 4.0), in line
+with the MVA Hackathon 2026 rules.
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:        https://creativecommons.org/licenses/by/4.0/
+
+Exceptions and third-party terms:
+- docs/alphagenome_missense_result.txt contains output from the AlphaGenome API,
+  which is subject to AlphaGenome's non-commercial output terms of use.
+- This repository does not contain ANNOVAR, Exomiser, GATK, Manta or any
+  third-party databases; those remain under their own licenses and terms.
+- No patient-level data is included.
