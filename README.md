@@ -29,7 +29,7 @@ A pharmacogenomic variant (DPYD rs1801160) is listed as an incidental secondary 
 
 ## How the predictions were produced
 1. Organiser VCF annotated with ANNOVAR; phenotype-driven ranking with Exomiser 14.0.0
-   using the proband's HPO terms (BUB1B ranked 1 of 377 genes).
+   using the proband's HPO terms (BUB1B ranked first (gene combined score 0.967)).
 2. Rarity and impact filters, plus a chromosomal-instability gene list check.
 3. Evidence panel for the two alleles (`scripts/evidence/`).
 4. EPCR computed by `scripts/epcr/compute_epcr.py` from hand-assigned ACMG evidence points
